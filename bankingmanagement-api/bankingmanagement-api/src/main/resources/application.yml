@@ -1,0 +1,5 @@
+spring.application.name=bankingmanagement-api
+spring.db.host=127.0.0.1:27017
+spring.db.username=root
+spring.db.password=example
+
