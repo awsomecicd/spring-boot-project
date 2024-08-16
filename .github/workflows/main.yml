@@ -2,9 +2,23 @@ name: Hello World
 
 on: 
   workflow_dispatch:
+  push:
+    branches:
+      - master
 
 jobs:
-  say_hello:
-    runs-on: ubuntu-latest
+  bench-mark:
+    strategy:
+      fail-fast: false
+      matrix:
+        runners:
+          - runs-on,runner=2cpu-linux-x64
+          - runs-on,runner=2cpu-linux-x64
+    runs-on:
+      labels:
+        - ${{  matrix.runners  }}
+        - index=${{strategy.job-index}}
     steps:
       - run: echo "Hello World!"
+        
+      
